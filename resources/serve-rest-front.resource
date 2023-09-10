@@ -16,6 +16,8 @@ Abrir o navegador
 
 Ir para o site Serve Rest Front
     New Page              url=${SITE_SERVE_REST}
+    ${title}              Get Title    ==    Front - ServeRest
+    Log    ${title}
 
 Preencher os dados do novo usuário e cadastrar
     #Click                css=.btn-link
@@ -26,4 +28,10 @@ Preencher os dados do novo usuário e cadastrar
     Fill Text             css=input[data-testid='email']        ${EMAIL}
     Fill Text             css=input[data-testid='password']     ${123456}
     Check Checkbox        css=input[data-testid='checkbox']     
-    Click                 css=button[data-testid='cadastrar']
+    #Click                 css=button[data-testid='cadastrar']
+    Click                xpath=//*[@id="root"]//button >> text="Cadastrar"    #Seletor em cascata
+
+Conferir usuário cadastrado com sucesso
+    Wait For Elements State     h1    visible
+    Get Text                    h1    ==    Bem Vindo Lete Miranda
+    Get Element States          css=button[data-testid='logout']    validate    value & visible
