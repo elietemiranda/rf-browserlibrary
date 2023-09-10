@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.5 on win32)" generated="20230910 15:17:48.473" rpa="false" schemaversion="3">
+<suite id="s1" name="Serve-Rest-Front" source="c:\StudiesProjects\rf-browserlibrary\tests\serve-rest-front.robot">
+<test id="s1-t1" name="Login com sucesso Serve Rest" line="5">
+<kw name="Abrir o navegador" library="serve-rest-front">
+<kw name="New Browser" library="Browser">
+<arg>browser=${BROWSER}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230910 15:17:51.104" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\StudiesProjects\\rf-browserlibrary\\browser\\traces\\65a95884-b061-4386-871a-9fd82b912220"}</msg>
+<msg timestamp="20230910 15:17:52.941" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\StudiesProjects\\rf-browserlibrary\\browser\\traces\\65a95884-b061-4386-871a-9fd82b912220"}</msg>
+<status status="PASS" starttime="20230910 15:17:51.104" endtime="20230910 15:17:52.942"/>
+</kw>
+<kw name="New Context" library="Browser">
+<arg>viewport={'width': 1200, 'height': 800}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<msg timestamp="20230910 15:17:52.945" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "hideRfBrowser": "",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 800,
+    "width": 1200
+  }
+}</msg>
+<msg timestamp="20230910 15:17:52.975" level="INFO">Successfully created context. </msg>
+<msg timestamp="20230910 15:17:52.976" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'hideRfBrowser': '', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 800, 'width': 1200}}</msg>
+<status status="PASS" starttime="20230910 15:17:52.943" endtime="20230910 15:17:52.976"/>
+</kw>
+<status status="PASS" starttime="20230910 15:17:51.104" endtime="20230910 15:17:52.977"/>
+</kw>
+<kw name="Ir para o site Serve Rest Front" library="serve-rest-front">
+<kw name="New Page" library="Browser">
+<arg>url=${SITE_SERVE_REST}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230910 15:17:56.214" level="INFO">Successfully initialized new page object and opened url: https://front.serverest.dev/</msg>
+<status status="PASS" starttime="20230910 15:17:52.983" endtime="20230910 15:17:56.214"/>
+</kw>
+<status status="PASS" starttime="20230910 15:17:52.983" endtime="20230910 15:17:56.214"/>
+</kw>
+<kw name="Preencher os dados do novo usuário e cadastrar" library="serve-rest-front">
+<kw name="Click" library="Browser">
+<arg>css=a[data-testid='cadastrar']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230910 15:17:56.215" endtime="20230910 15:17:56.607"/>
+</kw>
+<kw name="Email" library="FakerLibrary">
+<var>${EMAIL}</var>
+<msg timestamp="20230910 15:17:56.610" level="INFO">${EMAIL} = qnelson@example.net</msg>
+<status status="PASS" starttime="20230910 15:17:56.609" endtime="20230910 15:17:56.611"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[data-testid='nome']</arg>
+<arg>Lete Miranda</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230910 15:17:56.612" level="INFO">Fills the text 'Lete Miranda' in the given field.</msg>
+<status status="PASS" starttime="20230910 15:17:56.612" endtime="20230910 15:17:56.682"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[data-testid='email']</arg>
+<arg>${EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230910 15:17:56.683" level="INFO">Fills the text 'qnelson@example.net' in the given field.</msg>
+<status status="PASS" starttime="20230910 15:17:56.683" endtime="20230910 15:17:56.721"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[data-testid='password']</arg>
+<arg>${123456}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230910 15:17:56.722" level="INFO">Fills the text '123456' in the given field.</msg>
+<status status="PASS" starttime="20230910 15:17:56.721" endtime="20230910 15:17:56.755"/>
+</kw>
+<kw name="Check Checkbox" library="Browser">
+<arg>css=input[data-testid='checkbox']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" starttime="20230910 15:17:56.755" endtime="20230910 15:17:56.834"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button[data-testid='cadastrar']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230910 15:17:56.836" endtime="20230910 15:17:56.899"/>
+</kw>
+<status status="PASS" starttime="20230910 15:17:56.215" endtime="20230910 15:17:56.900"/>
+</kw>
+<status status="PASS" starttime="20230910 15:17:51.100" endtime="20230910 15:17:56.903"/>
+</test>
+<status status="PASS" starttime="20230910 15:17:48.479" endtime="20230910 15:17:57.044"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Serve-Rest-Front">Serve-Rest-Front</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
